@@ -7,4 +7,16 @@ class DR
     @total = @red_die + @white_die
   end
 
+  def cower?
+    if @red_die == @white_die
+      return true
+    else
+      return false
+    end
+  end
+
+  def tell
+    puts "#{@total} [\033[31m#{@red_die}\033[0m,#{@white_die}]"
+  end
+
 end
