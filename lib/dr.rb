@@ -1,4 +1,4 @@
-class Dice
+class DR
   attr_reader :red_die, :white_die, :total
   
   def initialize
