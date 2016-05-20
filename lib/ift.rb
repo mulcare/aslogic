@@ -4,6 +4,7 @@ class IFT
   attr_reader :ift
   
   def initialize
+    fp = [1, 2, 4, 6, 8, 12, 16, 20, 24, 30, 36]
     @ift = [
       ["1KIA", "2KIA", "2KIA", "3KIA", "3KIA,", "3KIA", "4KIA", "4KIA", "5KIA", "6KIA", "7KIA"],
       ["K/1", "1KIA", "1KIA", "2KIA", "2KIA", "2KIA", "3KIA", "3KIA", "4KIA", "5KIA", "6KIA"],
@@ -19,8 +20,11 @@ class IFT
   end
 
   def roll(firepower)
-    roll = DR.new 
-    
+    roll = DR.new
+
+    #Round down any firepower value to match a valid firepower total
+    firepower = fp.select {|c| c <= firepower}.max
+
     if roll.cower?
       result = @ift[roll.total][firepower - 1]
     else
