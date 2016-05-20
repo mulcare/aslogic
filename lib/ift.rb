@@ -19,8 +19,15 @@ class IFT
   end
 
   def roll(firepower)
-    roll = DR.new.total
-    puts @ift[roll][firepower]
+    roll = DR.new 
+    
+    if roll.cower?
+      result = @ift[roll.total][firepower - 1]
+    else
+    result = @ift[roll.total][firepower]
+    end
+    
+    puts "#{roll.tell} | \033[1m\033[35m#{result}\033[0m"
   end
     
 end

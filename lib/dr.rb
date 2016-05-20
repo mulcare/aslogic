@@ -24,7 +24,7 @@ class DR
   end
 
   def tell
-    puts "#{@total} [\033[31m#{@red_die}\033[0m,#{@white_die}\033[0m]"
+    print "#{@total} [\033[31m#{@red_die}\033[0m,#{@white_die}\033[0m]"
   end
 
 end
